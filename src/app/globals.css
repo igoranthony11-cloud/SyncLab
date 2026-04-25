@@ -1,16 +1,6 @@
 @import "tailwindcss";
 
-:root {
-  --purple: #9333ea;
-  --yellow: #facc15;
-  --pink: #ec4899;
-  --blue: #3b82f6;
-  --cream: #fef9ee;
-}
-
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -18,37 +8,68 @@ body {
   background: #f5f5f5;
 }
 
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+/* ── Marrom rústico com textura ── */
+.hero-brown {
+  background-color: #3d1a00;
+  background-image:
+    radial-gradient(ellipse at 30% 40%, rgba(120, 60, 10, 0.6) 0%, transparent 60%),
+    radial-gradient(ellipse at 75% 60%, rgba(90, 40, 5, 0.5) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E");
+  position: relative;
 }
 
-.marquee-track {
-  animation: marquee 18s linear infinite;
-  display: flex;
-  width: max-content;
+.hero-brown::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.04) 2px,
+      rgba(0,0,0,0.04) 3px
+    );
+  pointer-events: none;
 }
 
+/* ── Checkerboard ── */
 .checkerboard {
   background-image: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%);
   background-size: 20px 20px;
   height: 20px;
 }
 
+/* ── Marquee ── */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 18s linear infinite; display: flex; width: max-content; }
+
+/* ── Pulse CTA ── */
 @keyframes pulse-scale {
   0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.04); }
+  50%       { transform: scale(1.04); }
 }
+.pulse-btn { animation: pulse-scale 2s ease-in-out infinite; }
 
-.pulse-btn {
-  animation: pulse-scale 2s ease-in-out infinite;
-}
-
+/* ── Float icons ── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); }
+  50%       { transform: translateY(-8px); }
 }
+.float { animation: float 3s ease-in-out infinite; }
 
-.float {
-  animation: float 3s ease-in-out infinite;
+/* ── Receipt / typewriter font ── */
+.font-receipt { font-family: "Courier New", Courier, monospace; }
+
+/* ── Ticket grain overlay ── */
+.ticket-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  pointer-events: none;
+  border-radius: inherit;
 }
