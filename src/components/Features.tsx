@@ -1,9 +1,9 @@
 export default function Features() {
   const features = [
-    { icon: "🥗", label: "Nutrição Funcional" },
-    { icon: "🧘", label: "Mente Equilibrada" },
-    { icon: "💪", label: "Movimento & Força" },
-    { icon: "🌿", label: "Para Todos os Estilos" },
+    { icon: "🧘", label: "Yoga Guiada" },
+    { icon: "☕", label: "Coffee Party" },
+    { icon: "🌅", label: "Ao Amanhecer" },
+    { icon: "🎁", label: "Press Kit" },
   ];
 
   return (

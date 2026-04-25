@@ -76,7 +76,7 @@ function PaymentForm({ ticketId, clientSecret }: { ticketId: TicketId; clientSec
           {/* Logo */}
           <div className="text-center mb-1">
             <p className="text-red-600 font-black text-2xl" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
-              WellnessFest
+              Yoga Coffee Sync
             </p>
             <p className="text-xs font-bold tracking-widest text-gray-700">EVENTOS</p>
             <p className="text-xs text-gray-500 mt-1 italic">/Transforme sua vida em um fim de semana/</p>
@@ -198,7 +198,7 @@ export default function CheckoutClient() {
       <div className="max-w-sm mx-auto flex items-center gap-3 mb-6">
         <Link href="/#ingressos" className="text-yellow-500 font-black text-2xl">←</Link>
         <div>
-          <p className="text-yellow-600 font-black text-xs uppercase tracking-widest">WELLNESSFEST</p>
+          <p className="text-yellow-600 font-black text-xs uppercase tracking-widest">YOGA COFFEE SYNC</p>
           <h1 className="text-white font-black text-lg uppercase">Finalizar Compra</h1>
         </div>
       </div>

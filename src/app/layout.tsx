@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "WellnessFest 2026 — Transforme sua vida em um fim de semana",
+  title: "Yoga Coffee Sync — Running Gang x SyncLab | 02/05 Umuarama",
   description:
-    "O maior evento de bem-estar do Brasil. Nutrição, mente e movimento em um só lugar. Garanta seu ingresso agora.",
+    "Meditação, yoga e coffee party no rooftop do MC's Cafe. 02 de Maio de 2025, Umuarama-PR. Garanta seu ingresso agora — vagas limitadas por lote.",
   openGraph: {
-    title: "WellnessFest 2026",
-    description: "O maior evento de bem-estar do Brasil.",
+    title: "Yoga Coffee Sync | Running Gang x SyncLab",
+    description: "02/05/2025 · MC's Cafe Rooftop · Umuarama, PR",
     type: "website",
   },
 };

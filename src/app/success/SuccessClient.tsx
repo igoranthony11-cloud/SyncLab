@@ -20,7 +20,7 @@ function generateTicketId(name: string, email: string, ticketId: string) {
     hash = ((hash << 5) - hash) + raw.charCodeAt(i);
     hash |= 0;
   }
-  return `WF2026-${Math.abs(hash).toString(36).toUpperCase().slice(0, 8)}`;
+  return `YCS25-${Math.abs(hash).toString(36).toUpperCase().slice(0, 8)}`;
 }
 
 export default function SuccessClient() {
@@ -40,8 +40,9 @@ export default function SuccessClient() {
     id: ticketCode,
     nome: name,
     ingresso: ticket?.name ?? "",
-    evento: "WellnessFest 2026",
-    data: "14-15/06/2026",
+    evento: "Yoga Coffee Sync — Running Gang x SyncLab",
+    data: "02/05/2025",
+    local: "MC's Cafe Rooftop, Umuarama-PR",
     email,
   });
 
@@ -66,11 +67,11 @@ export default function SuccessClient() {
   };
 
   const TICKET_COLORS: Record<string, { bg: string; accent: string; label: string }> = {
-    standard: { bg: "#1e3a5f", accent: "#3b82f6", label: "#93c5fd" },
-    vip:      { bg: "#713f12", accent: "#ca8a04", label: "#fde68a" },
-    premium:  { bg: "#500724", accent: "#db2777", label: "#fbcfe8" },
+    completa: { bg: "#2e1065", accent: "#7c3aed", label: "#c4b5fd" },
+    tapete:   { bg: "#3d1a00", accent: "#b45309", label: "#fcd34d" },
+    coffee:   { bg: "#064e3b", accent: "#059669", label: "#6ee7b7" },
   };
-  const colors = TICKET_COLORS[ticketId ?? "standard"] ?? TICKET_COLORS.standard;
+  const colors = TICKET_COLORS[ticketId ?? "completa"] ?? TICKET_COLORS.completa;
 
   return (
     <div className="min-h-screen px-4 py-10" style={{ background: "#1a0a00" }}>
@@ -105,13 +106,13 @@ export default function SuccessClient() {
           <div>
             <p className="text-xs font-bold tracking-widest uppercase mb-0.5"
               style={{ color: colors.label }}>
-              WELLNESSFEST 2026
+              YOGA COFFEE SYNC · 02/05/2025
             </p>
             <p className="text-white font-black text-xl uppercase leading-tight">
               {ticket?.name ?? "INGRESSO"}
             </p>
             <p className="text-xs mt-1" style={{ color: colors.label }}>
-              14 e 15 de Junho · São Paulo · SP
+              MC's Cafe Rooftop · Umuarama, PR
             </p>
           </div>
           <div className="text-right">
@@ -227,9 +228,9 @@ export default function SuccessClient() {
           <h2 className="font-black text-white text-sm uppercase mb-3">Próximos passos</h2>
           {[
             ["📧", "Confirmação enviada para seu e-mail"],
-            ["📅", "14 e 15 de Junho de 2026 · São Paulo"],
-            ["📦", "Kit wellness enviado 10 dias antes"],
-            ["📲", "Salve o ingresso no seu celular"],
+            ["📅", "02 de Maio de 2025 · MC's Cafe Rooftop · Umuarama"],
+            ["📦", "Press Kit enviado antes do evento (modalidade completa)"],
+            ["📲", "Salve o ingresso no celular e apresente na entrada"],
           ].map(([icon, text]) => (
             <div key={text} className="flex items-start gap-3 mb-2">
               <span className="text-lg flex-shrink-0">{icon}</span>
