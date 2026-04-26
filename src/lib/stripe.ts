@@ -20,38 +20,44 @@ export const LOTE_ATUAL = 1;
 export const TICKETS = {
   completa: {
     id: "completa",
-    name: "EXPERIÊNCIA COMPLETA",
-    subtitle: "Press Kit + Coffee Sync",
-    price: 8900, // Lote 1: R$89
+    name: "EXPERIÊNCIA PRO",
+    subtitle: "Tudo + Press Kit Exclusivo",
+    price: 15900, // Preço único
     horario: "06:30 às 11:00",
-    description: "Viva o evento inteiro: meditação, yoga, press kit premium e coffee sync.",
+    description: "Tudo incluso + Press Kit exclusivo. Preço único, vagas limitadíssimas.",
     accent: "#7c3aed",
     features: [
-      "Meditação guiada ao amanhecer (06:30)",
+      "Reset ao amanhecer — respiração e consciência corporal (06:30)",
       "Sessão de yoga guiada (60 min)",
-      "Press Kit Premium: tapete personalizado + caneca/garrafa + adesivos",
-      "Coffee party + brunch saudável (08:30–11:00)",
+      "Imersão corpo e mente — alongamento profundo",
+      "Tapete de yoga personalizado do evento",
+      "Acesso ao Coffee Sync (08:30–11:00)",
+      "Open coffee espresso",
+      "Press Kit Exclusivo: garrafa Running Gang",
+      "Kit de adesivos exclusivos Running Gang",
       "Ativações exclusivas de parceiros",
     ],
-    vagas: 15, // Lote 1
-    lotePrecos: [8900, 10900, 12900],
+    vagas: 15,
+    lotePrecos: [15900, 15900, 15900], // preço único
   },
   tapete: {
     id: "tapete",
     name: "YOGA + COFFEE SYNC",
-    subtitle: "Tapete + Coffee",
-    price: 6900, // Lote 1: R$69
+    subtitle: "Tapete + Open Coffee",
+    price: 11900, // Lote 1: R$119
     horario: "06:30 às 11:00",
-    description: "A prática + o café, com tapete personalizado incluso.",
+    description: "Yoga completo com tapete personalizado + Coffee Sync.",
     accent: "#b45309",
     features: [
-      "Meditação guiada ao amanhecer (06:30)",
+      "Reset ao amanhecer — respiração e consciência corporal (06:30)",
       "Sessão de yoga guiada (60 min)",
-      "Tapete de yoga personalizado",
-      "Coffee party + brunch saudável (08:30–11:00)",
+      "Imersão corpo e mente — alongamento",
+      "Tapete de yoga personalizado do evento",
+      "Acesso ao Coffee Sync (08:30–11:00)",
+      "Open coffee espresso",
     ],
-    vagas: 15, // Lote 1
-    lotePrecos: [6900, 8500, 9900],
+    vagas: 15,
+    lotePrecos: [11900, 12900, 14900],
   },
   coffee: {
     id: "coffee",
@@ -59,15 +65,16 @@ export const TICKETS = {
     subtitle: "Só o Café",
     price: 3900, // Lote 1: R$39
     horario: "08:30 às 11:00",
-    description: "Curta a coffee party, brunch e a energia do pós-yoga.",
+    description: "Acesso ao Coffee Sync: open espresso, música e conexão.",
     accent: "#065f46",
     features: [
-      "Coffee party + brunch saudável",
-      "Ativações de parceiros",
-      "Networking e conexão com a comunidade",
+      "Acesso ao Coffee Sync",
+      "Open coffee espresso",
+      "Música + energia + networking",
+      "Conexão com a comunidade",
     ],
-    vagas: 30, // Lote 1
-    lotePrecos: [3900, 4900, 5900],
+    vagas: 30,
+    lotePrecos: [3900, 4900, 9700],
   },
 } as const;
 

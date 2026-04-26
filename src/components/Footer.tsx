@@ -36,10 +36,10 @@ export default function Footer() {
         <div className="border-t border-gray-100 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-center md:text-left">
           <div>
             <p className="text-xs text-gray-400">
-              02 de Maio de 2025 · MC's Cafe Rooftop · Umuarama, PR
+              02 de Maio de 2026 · Rooftop MC's Sobremesas · Umuarama, PR
             </p>
             <p className="text-xs text-gray-300 mt-1">
-              © 2025 Running Gang x SyncLab. Todos os direitos reservados.
+              © 2026 Running Gang x SyncLab. Todos os direitos reservados.
             </p>
           </div>
 

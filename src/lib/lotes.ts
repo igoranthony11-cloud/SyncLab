@@ -9,8 +9,8 @@ import { TICKETS, type TicketId } from "@/lib/stripe";
 
 // Vagas por lote, por modalidade
 export const VAGAS: Record<TicketId, number[]> = {
-  completa: [15, 15, 10],
-  tapete:   [15, 10, 10],
+  completa: [15, 15, 15], // preço único, mesmo lote
+  tapete:   [15, 15, 15],
   coffee:   [30, 30, 30],
 };
 

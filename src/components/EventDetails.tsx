@@ -1,11 +1,10 @@
 export default function EventDetails() {
   const programacao = [
-    { hora: "06:30", item: "Abertura dos portões" },
-    { hora: "06:30", item: "Meditação guiada ao amanhecer" },
-    { hora: "07:00", item: "Sessão de yoga guiada (60 min)" },
-    { hora: "08:30", item: "Coffee Sync: coffee party + brunch saudável" },
-    { hora: "09:00", item: "Ativações exclusivas de parceiros" },
-    { hora: "11:00", item: "Encerramento" },
+    { hora: "06:30", item: "Reset — respiração e consciência corporal" },
+    { hora: "07:30", item: "Sessão de yoga guiada (60 min)" },
+    { hora: "08:30", item: "Imersão corpo e mente — alongamento profundo" },
+    { hora: "09:00", item: "Coffee Sync — open coffee espresso + música + energia" },
+    { hora: "10:30/11:00", item: "Encerramento" },
   ];
 
   return (
@@ -24,10 +23,10 @@ export default function EventDetails() {
             YOGA COFFEE SYNC
           </h2>
           <p className="text-yellow-400 font-bold text-sm md:text-base mb-1">
-            02 de Maio de 2025 · Sexta-feira
+            02 de Maio de 2026 · Sábado
           </p>
           <p className="text-yellow-200/80 font-semibold text-sm">
-            📍 MC's Cafe Rooftop · Umuarama, PR
+            📍 Rooftop MC's Sobremesas · Umuarama, PR
           </p>
         </div>
 
