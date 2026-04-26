@@ -13,10 +13,10 @@ export default function AnnouncementBar() {
   ];
 
   return (
-    <div className="bg-black text-white text-xs font-bold py-2 overflow-hidden">
-      <div className="marquee-track">
+    <div className="bg-black text-white overflow-hidden flex flex-col justify-end" style={{ height: "56px" }}>
+      <div className="marquee-track pb-2">
         {items.concat(items).map((item, i) => (
-          <span key={i} className="px-6 whitespace-nowrap">{item}</span>
+          <span key={i} className="px-6 whitespace-nowrap text-xs font-bold">{item}</span>
         ))}
       </div>
     </div>
