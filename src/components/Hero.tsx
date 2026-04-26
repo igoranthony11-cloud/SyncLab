@@ -3,18 +3,17 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: "100svh" }}>
+    <section className="relative w-full overflow-hidden" style={{ lineHeight: 0 }}>
 
-      {/* Imagem preenchendo 100% — absolutamente posicionada */}
+      {/* Imagem com altura total da viewport — bloco direto sem absolute */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/hero-poster.png"
+        src="/hero-poster-v2.png"
         alt="Yoga Coffee Sync — 02 de Maio, MC's Cafe Rooftop, Umuarama-PR"
         style={{
-          position: "absolute",
-          inset: 0,
+          display: "block",
           width: "100%",
-          height: "100%",
+          height: "100svh",
           objectFit: "cover",
           objectPosition: "top center",
         }}
