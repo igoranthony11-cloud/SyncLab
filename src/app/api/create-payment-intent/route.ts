@@ -2,13 +2,28 @@ import { NextRequest, NextResponse } from "next/server";
 import { getStripe, TICKETS, type TicketId } from "@/lib/stripe";
 import { getLotesConfig, precoAtual } from "@/lib/lotes";
 
+// Taxa de parcelamento por parcela adicional (2.5% ao mês)
+const TAXA_PARCELA = 0.025;
+
+// Calcula o total com juros compostos para N parcelas
+export function calcularTotalComJuros(valorBase: number, parcelas: number): number {
+  if (parcelas <= 1) return valorBase;
+  const fator = Math.pow(1 + TAXA_PARCELA, parcelas - 1);
+  return Math.round(valorBase * fator);
+}
+
 export async function POST(req: NextRequest) {
   try {
-    const { ticketId } = await req.json() as { ticketId: TicketId };
+    const { ticketId, parcelas = 1 } = await req.json() as {
+      ticketId: TicketId;
+      parcelas?: number;
+    };
 
     if (!ticketId || !TICKETS[ticketId]) {
       return NextResponse.json({ error: "Modalidade inválida" }, { status: 400 });
     }
+
+    const parcelasNum = Math.min(Math.max(Number(parcelas), 1), 12);
 
     // Busca lote e preço atual do Firestore
     const config = await getLotesConfig();
@@ -18,25 +33,40 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Ingressos esgotados para esta modalidade" }, { status: 410 });
     }
 
-    const preco = precoAtual(ticketId, state);
+    const precoBase = precoAtual(ticketId, state);
+    const precoFinal = calcularTotalComJuros(precoBase, parcelasNum);
     const ticket = TICKETS[ticketId];
 
     const paymentIntent = await getStripe().paymentIntents.create({
-      amount: preco,
+      amount: precoFinal,
       currency: "brl",
-      automatic_payment_methods: { enabled: true },
+      payment_method_types: ["card", "pix"],
+      payment_method_options: {
+        card: {
+          installments: {
+            enabled: parcelasNum > 1,
+          },
+        },
+        pix: {
+          expires_after_seconds: 3600, // PIX expira em 1h
+        },
+      },
       metadata: {
         ticketId,
         ticketName: ticket.name,
         lote: String(state.lote),
-        preco: String(preco),
+        precoBase: String(precoBase),
+        precoFinal: String(precoFinal),
+        parcelas: String(parcelasNum),
       },
     });
 
     return NextResponse.json({
       clientSecret: paymentIntent.client_secret,
       lote: state.lote,
-      preco,
+      precoBase,
+      precoFinal,
+      parcelas: parcelasNum,
     });
   } catch (err) {
     console.error("create-payment-intent error:", err);
