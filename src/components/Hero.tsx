@@ -13,9 +13,8 @@ export default function Hero() {
         <img
           src="/hero-poster-mobile.png"
           alt="Yoga Coffee Sync — 02 de Maio, MC's Cafe Rooftop, Umuarama-PR"
+          className="block w-full hero-img"
           style={{
-            display: "block",
-            width: "100%",
             height: "100svh",
             objectFit: "cover",
             objectPosition: "top center",

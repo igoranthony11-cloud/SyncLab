@@ -57,6 +57,14 @@ body {
 }
 .pulse-btn { animation: pulse-scale 2s ease-in-out infinite; }
 
+/* ── Hero image: mobile cover, desktop natural height ── */
+@media (min-width: 768px) {
+  .hero-img {
+    height: auto !important;
+    object-fit: fill !important;
+  }
+}
+
 /* ── Float icons ── */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
