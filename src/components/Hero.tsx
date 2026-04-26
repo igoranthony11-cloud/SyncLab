@@ -8,7 +8,8 @@ export default function Hero() {
       style={{
         backgroundImage: "url('/hero-poster.png')",
         backgroundSize: "cover",
-        backgroundPosition: "center center",
+        backgroundPosition: "top center",
+        backgroundColor: "#e8e0d8",
         minHeight: "100svh",
       }}
     >
