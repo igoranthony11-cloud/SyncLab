@@ -26,7 +26,7 @@ export default function EventDetails() {
             02 de Maio de 2026 · Sábado
           </p>
           <p className="text-yellow-200/80 font-semibold text-sm">
-            📍 Rooftop MC's Sobremesas · Umuarama, PR
+            📍 MC's Sobremesas · Umuarama, PR
           </p>
         </div>
 

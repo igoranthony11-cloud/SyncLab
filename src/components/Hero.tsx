@@ -12,7 +12,7 @@ export default function Hero() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/hero-poster-mobile.png"
-          alt="Yoga Coffee Sync — 02 de Maio, Rooftop MC's Sobremesas, Umuarama-PR"
+          alt="Yoga Coffee Sync — 02 de Maio, MC's Sobremesas, Umuarama-PR"
           className="block w-full hero-img"
           style={{
             height: "100svh",

@@ -42,7 +42,7 @@ export default function SuccessClient() {
     ingresso: ticket?.name ?? "",
     evento: "Yoga Coffee Sync — Running Gang x SyncLab",
     data: "02/05/2026",
-    local: "Rooftop MC's Sobremesas, Umuarama-PR",
+    local: "MC's Sobremesas, Umuarama-PR",
     email,
   });
 
@@ -112,7 +112,7 @@ export default function SuccessClient() {
               {ticket?.name ?? "INGRESSO"}
             </p>
             <p className="text-xs mt-1" style={{ color: colors.label }}>
-              Rooftop MC's Sobremesas · Umuarama, PR
+              MC's Sobremesas · Umuarama, PR
             </p>
           </div>
           <div className="text-right">
@@ -228,7 +228,7 @@ export default function SuccessClient() {
           <h2 className="font-black text-white text-sm uppercase mb-3">Próximos passos</h2>
           {[
             ["📧", "Confirmação enviada para seu e-mail"],
-            ["📅", "02 de Maio de 2026 · Rooftop MC's Sobremesas · Umuarama"],
+            ["📅", "02 de Maio de 2026 · MC's Sobremesas · Umuarama"],
             ["📦", "Press Kit enviado antes do evento (modalidade completa)"],
             ["📲", "Salve o ingresso no celular e apresente na entrada"],
           ].map(([icon, text]) => (

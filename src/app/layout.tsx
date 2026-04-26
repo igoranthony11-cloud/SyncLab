@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Yoga Coffee Sync — Running Gang x SyncLab | 02/05 Umuarama",
   description:
-    "Meditação, yoga e coffee party no Rooftop MC's Sobremesas. 02 de Maio de 2026, Umuarama-PR. Garanta seu ingresso agora — vagas limitadas por lote.",
+    "Meditação, yoga e coffee party no MC's Sobremesas. 02 de Maio de 2026, Umuarama-PR. Garanta seu ingresso agora — vagas limitadas por lote.",
   icons: {
     icon: "/icon.png",
     shortcut: "/icon.png",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Yoga Coffee Sync | Running Gang x SyncLab",
-    description: "02/05/2026 · Rooftop MC's Sobremesas · Umuarama, PR",
+    description: "02/05/2026 · MC's Sobremesas · Umuarama, PR",
     type: "website",
   },
 };
