@@ -1,23 +1,27 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full flex flex-col items-center justify-end text-center overflow-hidden"
-      style={{ minHeight: "100svh" }}>
+    <section className="relative w-full overflow-hidden" style={{ height: "100svh" }}>
 
-      {/* Imagem preenchendo 100% sem espaços em branco */}
-      <Image
+      {/* Imagem preenchendo 100% — absolutamente posicionada */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         src="/hero-poster.png"
         alt="Yoga Coffee Sync — 02 de Maio, MC's Cafe Rooftop, Umuarama-PR"
-        fill
-        className="object-cover object-top"
-        priority
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          objectPosition: "top center",
+        }}
       />
 
-      {/* CTA sobreposto na parte inferior */}
-      <div className="relative z-10 w-full pb-10 pt-16 px-6 text-center"
+      {/* CTA fixado na parte inferior sobre gradiente */}
+      <div className="absolute bottom-0 left-0 right-0 z-10 pb-10 pt-16 px-6 text-center"
         style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%)" }}>
         <Link
           href="#ingressos"
