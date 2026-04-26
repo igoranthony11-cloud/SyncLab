@@ -52,7 +52,7 @@ export default function EventDetails() {
             </p>
             <div className="grid grid-cols-3 gap-3 mb-6">
               {[
-                { val: "165", label: "Vagas" },
+                { val: "130", label: "Vagas" },
                 { val: "3", label: "Opções" },
                 { val: "1", label: "Manhã" },
               ].map(({ val, label }) => (
