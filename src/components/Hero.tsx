@@ -5,19 +5,23 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden" style={{ lineHeight: 0 }}>
 
-      {/* Imagem com altura total da viewport — bloco direto sem absolute */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/hero-poster-v3.png"
-        alt="Yoga Coffee Sync — 02 de Maio, MC's Cafe Rooftop, Umuarama-PR"
-        style={{
-          display: "block",
-          width: "100%",
-          height: "100svh",
-          objectFit: "cover",
-          objectPosition: "top center",
-        }}
-      />
+      {/* Mobile: retrato | Desktop: paisagem */}
+      <picture>
+        <source media="(min-width: 768px)" srcSet="/hero-poster-desktop.png" />
+        <source media="(max-width: 767px)" srcSet="/hero-poster-v3.png" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/hero-poster-v3.png"
+          alt="Yoga Coffee Sync — 02 de Maio, MC's Cafe Rooftop, Umuarama-PR"
+          style={{
+            display: "block",
+            width: "100%",
+            height: "100svh",
+            objectFit: "cover",
+            objectPosition: "top center",
+          }}
+        />
+      </picture>
 
       {/* CTA fixado na parte inferior sobre gradiente */}
       <div className="absolute bottom-0 left-0 right-0 z-10 pb-10 pt-16 px-6 text-center"
