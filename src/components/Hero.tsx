@@ -8,7 +8,7 @@ export default function Hero() {
       {/* Imagem com altura total da viewport — bloco direto sem absolute */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/hero-poster-v2.png"
+        src="/hero-poster-v3.png"
         alt="Yoga Coffee Sync — 02 de Maio, MC's Cafe Rooftop, Umuarama-PR"
         style={{
           display: "block",
