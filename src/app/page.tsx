@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="max-w-md mx-auto bg-white min-h-screen">
+    <main className="bg-white min-h-screen">
       <AnnouncementBar />
       <Hero />
       <div className="checkerboard" />

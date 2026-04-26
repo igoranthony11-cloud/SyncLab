@@ -68,11 +68,10 @@ export default function TicketSection() {
   };
 
   return (
-    <section id="ingressos" className="px-5 py-12" style={{ backgroundColor: "#fef9ee" }}>
-      <h2 className="text-black font-black text-3xl uppercase text-center mb-1">INGRESSOS</h2>
+    <section id="ingressos" className="px-5 py-12 md:py-16" style={{ backgroundColor: "#fef9ee" }}>
+      <h2 className="text-black font-black text-3xl md:text-4xl uppercase text-center mb-1">INGRESSOS</h2>
 
-      {/* Badge lote atual */}
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-8">
         {lotes ? (
           <span className="inline-block bg-black text-white font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-widest">
             🔥 LOTE {lotes.completa?.lote ?? 1} — DISPONÍVEL AGORA
@@ -90,7 +89,8 @@ export default function TicketSection() {
         </p>
       )}
 
-      <div className="flex flex-col gap-5 max-w-sm mx-auto">
+      {/* Mobile: coluna | Desktop: 3 colunas */}
+      <div className="flex flex-col md:flex-row gap-5 max-w-5xl mx-auto">
         {(Object.entries(TICKETS) as [TicketId, typeof TICKETS[TicketId]][]).map(([id, ticket]) => {
           const style = CARD_STYLES[id];
           const labelColor = LABEL_COLORS[id];
@@ -98,27 +98,17 @@ export default function TicketSection() {
           const esgotado = info?.esgotado ?? false;
           const loteAtual = info?.lote ?? 1;
           const preco = info?.preco ?? ticket.lotePrecos[0];
-          const vagasRestantes = info?.vagasRestantes ?? "—";
           const vagasPorLote = info?.vagasPorLote ?? [15, 15, 10];
 
           return (
-            <div key={id}
-              className="rounded-3xl overflow-hidden border-2 shadow-[4px_4px_0_0_#000]"
-              style={{
-                background: style.bg,
-                borderColor: esgotado ? "#666" : style.border,
-                opacity: esgotado ? 0.7 : 1,
-              }}>
+            <div key={id} className="flex-1 rounded-3xl overflow-hidden border-2 shadow-[4px_4px_0_0_#000] flex flex-col"
+              style={{ background: style.bg, borderColor: esgotado ? "#666" : style.border, opacity: esgotado ? 0.7 : 1 }}>
 
-              {/* Header */}
               <div className="px-5 pt-5 pb-3">
                 <div className="flex justify-between items-start mb-1">
                   <div>
-                    <h3 className="text-white font-black text-lg uppercase leading-tight">
-                      {ticket.name}
-                    </h3>
-                    <p className="font-bold text-xs uppercase tracking-wider mt-0.5"
-                      style={{ color: labelColor }}>
+                    <h3 className="text-white font-black text-lg uppercase leading-tight">{ticket.name}</h3>
+                    <p className="font-bold text-xs uppercase tracking-wider mt-0.5" style={{ color: labelColor }}>
                       {ticket.subtitle}
                     </p>
                   </div>
@@ -134,20 +124,14 @@ export default function TicketSection() {
                   </div>
                 </div>
                 <p className="text-white/80 text-sm font-semibold mt-1">⏰ {ticket.horario}</p>
-
-                {/* Barra de vagas */}
                 {!esgotado && info && (
-                  <VagasBar
-                    restantes={info.vagasRestantes}
-                    total={vagasPorLote[loteAtual - 1] ?? 15}
-                  />
+                  <VagasBar restantes={info.vagasRestantes} total={vagasPorLote[loteAtual - 1] ?? 15} />
                 )}
               </div>
 
               <div className="border-t border-white/10 mx-5" />
 
-              {/* Features */}
-              <div className="px-5 py-3">
+              <div className="px-5 py-3 flex-1">
                 <p className="text-white/60 text-xs font-bold uppercase tracking-wider mb-2">Incluso</p>
                 {ticket.features.map((f) => (
                   <p key={f} className="text-white text-sm font-semibold mb-1 flex items-start gap-1.5">
@@ -156,7 +140,6 @@ export default function TicketSection() {
                 ))}
               </div>
 
-              {/* Progresso dos lotes */}
               <div className="px-5 pb-3">
                 <div className="flex gap-2">
                   {ticket.lotePrecos.map((p, i) => {
@@ -164,17 +147,14 @@ export default function TicketSection() {
                     const isAtual = loteNum === loteAtual && !esgotado;
                     const isPast = loteNum < loteAtual || esgotado;
                     return (
-                      <div key={i}
-                        className="flex-1 text-center rounded-xl py-1.5"
+                      <div key={i} className="flex-1 text-center rounded-xl py-1.5"
                         style={{ background: isAtual ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.05)" }}>
-                        <p className="text-xs font-bold"
-                          style={{ color: isAtual ? "#fff" : "rgba(255,255,255,0.3)" }}>
+                        <p className="text-xs font-bold" style={{ color: isAtual ? "#fff" : "rgba(255,255,255,0.3)" }}>
                           Lote {loteNum}
                         </p>
                         <p className={`text-xs font-black ${isPast ? "line-through opacity-30" : ""}`}
                           style={{ color: isAtual ? "#fff" : "rgba(255,255,255,0.3)" }}>
                           {formatBRL(p)}
-                          {isPast && loteNum < loteAtual ? " ✓" : ""}
                         </p>
                       </div>
                     );
@@ -182,21 +162,11 @@ export default function TicketSection() {
                 </div>
               </div>
 
-              {/* Botão */}
               <div className="px-5 pb-5">
-                <button
-                  onClick={() => handleSelect(id)}
-                  disabled={loading !== null || esgotado}
+                <button onClick={() => handleSelect(id)} disabled={loading !== null || esgotado}
                   className="w-full font-black text-sm py-3.5 rounded-full border-2 border-white/30 uppercase tracking-wider transition-all disabled:cursor-not-allowed hover:opacity-90"
-                  style={{
-                    background: esgotado ? "#555" : style.btn,
-                    color: "#fff",
-                  }}>
-                  {esgotado
-                    ? "ESGOTADO"
-                    : loading === id
-                    ? "AGUARDE..."
-                    : "GARANTIR MINHA VAGA"}
+                  style={{ background: esgotado ? "#555" : style.btn, color: "#fff" }}>
+                  {esgotado ? "ESGOTADO" : loading === id ? "AGUARDE..." : "GARANTIR MINHA VAGA"}
                 </button>
               </div>
             </div>

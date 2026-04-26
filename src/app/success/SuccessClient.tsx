@@ -74,12 +74,12 @@ export default function SuccessClient() {
   const colors = TICKET_COLORS[ticketId ?? "completa"] ?? TICKET_COLORS.completa;
 
   return (
-    <div className="min-h-screen px-4 py-10" style={{ background: "#1a0a00" }}>
+    <div className="min-h-screen px-4 py-10 md:py-16" style={{ background: "#1a0a00" }}>
 
       {/* Confirmação */}
-      <div className="max-w-sm mx-auto text-center mb-8">
+      <div className="max-w-lg mx-auto text-center mb-8">
         <div className="text-5xl mb-3">🎉</div>
-        <h1 className="text-white font-black text-2xl uppercase mb-1"
+        <h1 className="text-white font-black text-2xl md:text-3xl uppercase mb-1"
           style={{ textShadow: "2px 2px 0 rgba(0,0,0,0.5)" }}>
           Compra Confirmada!
         </h1>
@@ -89,7 +89,7 @@ export default function SuccessClient() {
       </div>
 
       {/* ── INGRESSO ── */}
-      <div ref={ticketRef} className="relative max-w-sm mx-auto rounded-2xl overflow-hidden select-none"
+      <div ref={ticketRef} className="relative max-w-md mx-auto rounded-2xl overflow-hidden select-none"
         style={{ background: colors.bg, fontFamily: "'Courier New', monospace" }}>
 
         {/* Textura de grão */}
@@ -207,7 +207,7 @@ export default function SuccessClient() {
       </div>
 
       {/* Botão download */}
-      <div className="max-w-sm mx-auto mt-6 space-y-3">
+      <div className="max-w-md mx-auto mt-6 space-y-3">
         <button
           onClick={handleDownload}
           disabled={downloading}

@@ -64,7 +64,7 @@ function PaymentForm({ ticketId, clientSecret }: { ticketId: TicketId; clientSec
   return (
     <form onSubmit={handleSubmit}>
       {/* Receipt card */}
-      <div className="font-receipt bg-[#f5f0e8] border-4 border-red-600 rounded-lg shadow-2xl overflow-hidden mx-auto max-w-sm">
+      <div className="font-receipt bg-[#f5f0e8] border-4 border-red-600 rounded-lg shadow-2xl overflow-hidden mx-auto max-w-md">
 
         {/* Topo vermelho */}
         <div className="bg-red-600 px-6 py-3 flex justify-between items-center">
@@ -193,9 +193,9 @@ export default function CheckoutClient() {
   if (!ticketId || !TICKETS[ticketId]) return null;
 
   return (
-    <div className="min-h-screen px-4 py-8" style={{ background: "#1a0a00" }}>
+    <div className="min-h-screen px-4 py-8 md:py-12" style={{ background: "#1a0a00" }}>
       {/* Header */}
-      <div className="max-w-sm mx-auto flex items-center gap-3 mb-6">
+      <div className="max-w-md mx-auto flex items-center gap-3 mb-6">
         <Link href="/#ingressos" className="text-yellow-500 font-black text-2xl">←</Link>
         <div>
           <p className="text-yellow-600 font-black text-xs uppercase tracking-widest">YOGA COFFEE SYNC</p>
@@ -204,7 +204,7 @@ export default function CheckoutClient() {
       </div>
 
       {error && (
-        <div className="max-w-sm mx-auto bg-red-100 border border-red-400 rounded px-4 py-3 text-red-700 text-sm font-semibold mb-4">
+        <div className="max-w-md mx-auto bg-red-100 border border-red-400 rounded px-4 py-3 text-red-700 text-sm font-semibold mb-4">
           {error}
         </div>
       )}
