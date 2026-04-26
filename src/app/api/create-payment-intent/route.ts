@@ -40,17 +40,7 @@ export async function POST(req: NextRequest) {
     const paymentIntent = await getStripe().paymentIntents.create({
       amount: precoFinal,
       currency: "brl",
-      payment_method_types: ["card", "pix"],
-      payment_method_options: {
-        card: {
-          installments: {
-            enabled: parcelasNum > 1,
-          },
-        },
-        pix: {
-          expires_after_seconds: 3600, // PIX expira em 1h
-        },
-      },
+      automatic_payment_methods: { enabled: true },
       metadata: {
         ticketId,
         ticketName: ticket.name,
