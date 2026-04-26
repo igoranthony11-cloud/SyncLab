@@ -8,10 +8,10 @@ export default function Hero() {
       {/* Mobile: retrato | Desktop: paisagem */}
       <picture>
         <source media="(min-width: 768px)" srcSet="/hero-poster-desktop.png" />
-        <source media="(max-width: 767px)" srcSet="/hero-poster-v3.png" />
+        <source media="(max-width: 767px)" srcSet="/hero-poster-mobile.png" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/hero-poster-v3.png"
+          src="/hero-poster-mobile.png"
           alt="Yoga Coffee Sync — 02 de Maio, MC's Cafe Rooftop, Umuarama-PR"
           style={{
             display: "block",
