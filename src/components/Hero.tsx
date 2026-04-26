@@ -29,7 +29,7 @@ export default function Hero() {
           GARANTA SEU INGRESSO
         </Link>
         <p className="mt-3 text-yellow-200/80 text-xs font-semibold">
-          ⚡ Vagas limitadas por lote — preço aumenta conforme esgota
+          ⚡ Vagas limitadas por lote<br />preço aumenta conforme esgota
         </p>
       </div>
     </section>
